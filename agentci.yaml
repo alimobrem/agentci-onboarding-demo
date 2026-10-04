@@ -1,0 +1,41 @@
+apiVersion: agentci.io/v1alpha1
+kind: AgentProject
+metadata:
+  name: my-agent-project
+spec:
+  source:
+    defaultBranch: main
+  specifications:
+    include:
+      - specs/*.yaml
+  implementation:
+    include:
+      - src/**
+  evals:
+    include:
+      - evals/**
+  policies:
+    include:
+      - permissions/**
+  prompts:
+    include:
+      - prompts/**
+  models:
+    allowedProviders:
+      - openai
+    defaultRoute: standard
+  ci:
+    provider: auto
+  telemetry:
+    protocol: otlp
+    contentCapture: metadata-only
+  review:
+    requiredCheckName: agentci/review
+  extensions:
+    agentci.io/review:
+      permissions:
+        - permissions/**
+      tools:
+        - tools/**
+      modelConfigs:
+        - models/**
