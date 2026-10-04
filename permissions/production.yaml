@@ -3,5 +3,5 @@ kind: PermissionManifest
 permissions:
   - id: demo-production-write
     environment: production
-    actions: [write]
-    resources: [published-demo-service]
+    actions: [unsupported-final-release-action]
+    resources: [final-release-demo-service]
