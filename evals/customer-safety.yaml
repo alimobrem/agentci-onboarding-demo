@@ -1,0 +1,24 @@
+apiVersion: agentci.io/v1alpha1
+kind: EvalSuite
+metadata:
+  id: customer-safety
+spec:
+  class: golden
+  requirements: [REQ-001]
+  impact:
+    categories: [prompt]
+    include: [prompts/**]
+  runner:
+    adapter: command
+    command:
+      - node
+      - -e
+      - "require('node:assert/strict').equal(require('node:fs').readFileSync('prompts/response.txt','utf8').trim(),'SAFE')"
+    timeoutMs: 10000
+  scenarios:
+    - id: safe-response
+      critical: true
+  trials:
+    count: 2
+    passRate: 1
+    confidenceMethod: wilson
