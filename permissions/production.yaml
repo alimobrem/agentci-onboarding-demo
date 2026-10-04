@@ -1,0 +1,7 @@
+apiVersion: agentci.io/v1alpha1
+kind: PermissionManifest
+permissions:
+  - id: demo-production-write
+    environment: production
+    actions: [write]
+    resources: [final-release-demo-service]
