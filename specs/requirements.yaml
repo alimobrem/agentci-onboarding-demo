@@ -1,0 +1,5 @@
+id: REQ-001
+title: Reviewable agent changes
+type: functional
+status: active
+text: Agent changes must retain review evidence.
