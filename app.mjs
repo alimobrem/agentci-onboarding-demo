@@ -1,0 +1,1 @@
+export function allowed(ns){return ns==='safe';}

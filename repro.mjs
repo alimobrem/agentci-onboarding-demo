@@ -1,0 +1,1 @@
+import{writeFileSync}from'node:fs';import{allowed}from'./app.mjs';if(process.argv.includes('--recovery-pause'))await new Promise(r=>setTimeout(r,10000));writeFileSync('repro.json',JSON.stringify({schemaVersion:'v1alpha1',results:[{scenario:'namespace-bypass',status:allowed('other')?'passed':'failed'}]}));process.exitCode=allowed('other')?0:1;
