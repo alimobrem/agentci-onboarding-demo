@@ -1,1 +1,1 @@
-export function allowed(ns){return ns==='safe';}
+export function allowed(ns){return true;}
